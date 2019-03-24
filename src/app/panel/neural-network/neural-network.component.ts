@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NeuralNetwork} from './utils/neural-network';
 
 @Component({
   selector: 'app-neural-network',
@@ -7,15 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NeuralNetworkComponent implements OnInit {
 
-  data: any[];
+  data: any;
+  trainingData: any;
+  testData: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   loadFile(event: any) {
     this.data = event;
+
+    //neural network
+    const neuralNetwork = new NeuralNetwork();
+    [this.trainingData, this.testData] = [neuralNetwork.createTrainingData(this.data), neuralNetwork.createTestData(this.data)];
+    const model = neuralNetwork.createModel();
+    neuralNetwork.trainData(model, neuralNetwork.createOutputData(this.data), this.trainingData, this.testData);
+
+    //display data properties
   }
+
+  displayDataTable(){}
 
 }

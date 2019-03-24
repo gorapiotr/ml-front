@@ -1,17 +1,34 @@
 <app-panel-header>
-  <div header-title>Neural network</div>
-  <div buttons>
-    <button class="btn btn-sm btn-outline-primary">
-      Neural network info
-    </button>
-  </div>
+    <div header-title>Neural network</div>
+    <div buttons>
+        <button class="btn btn-sm btn-outline-primary">
+            Neural network info
+        </button>
+    </div>
 </app-panel-header>
 
 <app-input-file (fileEmitter)="loadFile($event)"></app-input-file>
 
 
 <br>
-<h5 *ngIf="data?.length"> Loaded data</h5>
-<p>
-    {{data | json}}
-</p>
+<ng-container *ngIf="data?.length">
+    <h5>Laded data</h5>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <ng-container *ngFor="let item of data[0] | keyvalue">
+                <th scope="col">{{item.key | titlecase }}</th>
+            </ng-container>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let obj of data | slice:0 :10, let i = index">
+            <td> {{i + 1}}</td>
+            <ng-container *ngFor="let item of obj | keyvalue">
+                <td> {{item.value}}</td>
+            </ng-container>
+        </tr>
+        </tbody>
+    </table>
+</ng-container>

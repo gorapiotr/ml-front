@@ -8,9 +8,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class InputFileComponent implements OnInit {
 
-  @Output() fileEmitter: EventEmitter = new EventEmitter<any>();
+  @Output() fileEmitter: EventEmitter<any> = new EventEmitter<any>();
 
   formGroup: FormGroup;
+  fileName = 'Load file';
 
   constructor(private fb: FormBuilder) {
   }
@@ -21,7 +22,7 @@ export class InputFileComponent implements OnInit {
 
   private createForm() {
     this.formGroup = this.fb.group({
-      file: [null, Validators.required]
+      file: ['', Validators.required]
     });
   }
 
@@ -30,10 +31,11 @@ export class InputFileComponent implements OnInit {
 
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
+      this.fileName = file.name;
       reader.readAsText(file);
       reader.onload = () => {
         this.formGroup.patchValue({
-          file: JSON.parse(reader.result)
+          file: JSON.parse(reader.result as string)
         });
       };
     }

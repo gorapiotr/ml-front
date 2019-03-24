@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NeuralNetworkComponent implements OnInit {
 
+  data: any[];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  loadFile(event: any) {
+    this.data = event;
   }
 
 }

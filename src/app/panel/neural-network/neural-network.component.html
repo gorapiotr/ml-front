@@ -6,3 +6,12 @@
     </button>
   </div>
 </app-panel-header>
+
+<app-input-file (fileEmitter)="loadFile($event)"></app-input-file>
+
+
+<br>
+<h5 *ngIf="data?.length"> Loaded data</h5>
+<p>
+    {{data | json}}
+</p>

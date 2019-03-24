@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DashboardComponent} from './dashboard.component';
+import {NeuralNetworkComponent} from './neural-network.component';
 import {LayoutModule} from '../../layout/layout.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
+    NeuralNetworkComponent,
   ],
   imports: [
     CommonModule,
     LayoutModule
   ]
 })
-export class DashboardModule {
+export class NeuralNetworkModule {
 }

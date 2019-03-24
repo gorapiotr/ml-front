@@ -5,10 +5,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {DashboardComponent} from './panel/dashboard/dashboard.component';
 import {DashboardModule} from './panel/dashboard/dashboard.module';
-import {PanelLayoutComponent} from './layout/panel-layout/panel-layout.component';
 import {LayoutModule} from './layout/layout.module';
+import {NeuralNetworkModule} from './panel/neural-network/neural-network.module';
+import {DecisionTreeModule} from './panel/decision-tree/decision-tree.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,8 @@ import {LayoutModule} from './layout/layout.module';
     ReactiveFormsModule,
 
     DashboardModule,
+    NeuralNetworkModule,
+    DecisionTreeModule,
     LayoutModule
   ],
   providers: [],

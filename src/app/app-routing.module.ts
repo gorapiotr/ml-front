@@ -3,6 +3,8 @@ import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {PanelLayoutComponent} from './layout/panel-layout/panel-layout.component';
 import {DashboardComponent} from './panel/dashboard/dashboard.component';
+import {NeuralNetworkComponent} from './panel/neural-network/neural-network.component';
+import {DecisionTreeComponent} from './panel/decision-tree/decision-tree.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -10,12 +12,11 @@ const routes: Routes = [
     {
         path: '', component: PanelLayoutComponent, children: [
             {path: 'dashboard', component: DashboardComponent},
-            {path: 'neural-network', component: DashboardComponent},
-            {path: 'decision-tree', component: DashboardComponent}
+            {path: 'neural-network', component: NeuralNetworkComponent},
+            {path: 'decision-tree', component: DecisionTreeComponent}
         ]
     },
-    // {path:'**', redirectTo: 'login', pathMatch: 'full'}
-
+    {path:'**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({

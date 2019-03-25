@@ -1,0 +1,33 @@
+<div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Check properties to training: </label>
+                    <ng-container formArrayName="trainingProperties"
+                                  *ngFor="let item of formGroup.controls.trainingProperties.controls; let i = index">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [formControlName]="i">
+                            <label class="form-check-label">
+                                {{trainingProperties[i]}}
+                            </label>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Set up class: </label>
+                    <div *ngFor="let item of trainingProperties | keyvalue; let i = index">
+                        <input [value]="item.value" [id]="i" formControlName="predictClass" type="radio">
+                        {{ item.value }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-secondary" [disabled]="formGroup.invalid || formGroup.prestine">Submit</button>
+    </form>
+    <p>
+        {{formGroup.value | json }}
+    </p>
+</div>

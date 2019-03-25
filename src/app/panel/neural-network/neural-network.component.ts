@@ -30,6 +30,7 @@ export class NeuralNetworkComponent implements OnInit {
     //display data properties
   }
 
-  displayDataTable(){}
-
+  setUpProperties(event: any) {
+    console.log(event);
+  }
 }

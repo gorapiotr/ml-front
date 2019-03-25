@@ -69,7 +69,5 @@ export class NeuralNetwork {
     let predict = model.predict(testingData).toString();
 
     predict = JSON.parse(predict.replace('Tensor', '').substring(5));
-
-    console.log(predict);
   }
 }

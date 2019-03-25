@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.html" afterPath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.html" />
       <change beforePath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.ts" afterPath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.ts" />
       <change beforePath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.html" afterPath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.ts" afterPath="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.ts" />
       <change beforePath="$PROJECT_DIR$/src/app/panel/neural-network/utils/neural-network.ts" afterPath="$PROJECT_DIR$/src/app/panel/neural-network/utils/neural-network.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="neural-network.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+            <state relative-caret-position="285">
+              <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -30,38 +29,28 @@
       <file leaf-file-name="neural-network-form.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="9" column="97" lean-forward="false" selection-start-line="9" selection-start-column="97" selection-end-line="9" selection-end-column="97" />
+            <state relative-caret-position="306">
+              <caret line="28" column="163" lean-forward="false" selection-start-line="28" selection-start-column="147" selection-end-line="28" selection-end-column="163" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="neural-network.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network.module.ts">
+      <file leaf-file-name="neural-network-form.component.spec.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shared.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/shared.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="12" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="neural-network-form.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="neural-network-form.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="50" column="3" lean-forward="false" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
+            <state relative-caret-position="112">
+              <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
               </folding>
@@ -93,20 +82,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="neural-network.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="neural-network.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/utils/neural-network.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="85" column="86" lean-forward="false" selection-start-line="85" selection-start-column="86" selection-end-line="85" selection-end-column="86" />
+            <state relative-caret-position="-542">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="neural-network-form.component.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.scss">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="345">
+              <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iris.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iris.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1456">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -129,6 +128,7 @@
     <findStrings>
       <find>btn</find>
       <find>mb-</find>
+      <find>data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,9 +156,9 @@
         <option value="$PROJECT_DIR$/src/app/shared/forms/input-file/input-file.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared/forms/input-file/input-file.component.ts" />
         <option value="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.html" />
         <option value="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.ts" />
         <option value="$PROJECT_DIR$/src/app/panel/neural-network/utils/neural-network.ts" />
+        <option value="$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.html" />
         <option value="$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.html" />
         <option value="$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.ts" />
       </list>
@@ -315,12 +315,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553427755196</updated>
-      <workItem from="1553427756727" duration="27659000" />
+      <workItem from="1553427756727" duration="32481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27659000" />
+    <option name="totallyTimeSpent" value="32481000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -554,14 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -610,16 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/shared.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -658,35 +640,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/utils/neural-network.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="85" column="86" lean-forward="false" selection-start-line="85" selection-start-column="86" selection-end-line="85" selection-end-column="86" />
+        <state relative-caret-position="285">
+          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="9" column="97" lean-forward="false" selection-start-line="9" selection-start-column="97" selection-end-line="9" selection-end-column="97" />
+        <state relative-caret-position="306">
+          <caret line="28" column="163" lean-forward="false" selection-start-line="28" selection-start-column="147" selection-end-line="28" selection-end-column="163" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/neural-network-form/neural-network-form.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="50" column="3" lean-forward="false" selection-start-line="50" selection-start-column="3" selection-end-line="50" selection-end-column="3" />
+        <state relative-caret-position="112">
+          <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iris.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1456">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/panel/neural-network/utils/neural-network.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-542">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

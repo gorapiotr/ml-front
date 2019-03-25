@@ -17,7 +17,7 @@
 
 <ng-container *ngIf="data?.length">
     <!-- data form -->
-    <app-neural-network-form [data]="data[0]" [dataLength]="data.length" (formEmitter)="setUpProperties($event)"></app-neural-network-form>
+    <app-neural-network-form [data]="data" [dataLength]="data.length" (formEmitter)="setUpProperties($event)"></app-neural-network-form>
 
     <!-- data elements -->
     <div class="container">

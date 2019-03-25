@@ -33,10 +33,6 @@ export class NeuralNetwork {
       [this.config.testGroup, this.config.trainingProperties.length]);
   }
 
-  getTestData() {
-
-  }
-
   get outputData() {
     return tf.tensor2d(this.data.slice(0, this.config.trainGroup).map(item => [
       item.species === 'setosa' ? 1 : 0,

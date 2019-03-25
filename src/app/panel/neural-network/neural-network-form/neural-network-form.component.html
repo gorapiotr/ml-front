@@ -4,12 +4,11 @@
             <div class="col-3">
                 <div class="form-group">
                     <label>Check properties to training: </label>
-                    <ng-container formArrayName="trainingProperties"
-                                  *ngFor="let item of formGroup.controls.trainingProperties.controls; let i = index, let last = last">
+                    <ng-container *ngFor="let item of trainingProperties;">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" [formControlName]="i">
+                            <input class="form-check-input" type="checkbox" [value]="item" (change)="onCheckChange($event)" [checked]="checkField(item)">
                             <label class="form-check-label">
-                                {{trainingProperties[i]}}
+                                {{item}}
                             </label>
                         </div>
                     </ng-container>
@@ -19,7 +18,7 @@
                 <div class="form-group">
                     <label>Set up class: </label>
                     <div *ngFor="let item of trainingProperties | keyvalue; let i = index">
-                        <input [value]="item.value" [id]="i" formControlName="predictClass" type="radio" aria-modal="false">
+                        <input [value]="item.value" [id]="i" formControlName="predictClass" type="radio" aria-modal="false" (change)="updateClassValues(item.value)">
                         {{ item.value }}
                     </div>
                 </div>
@@ -27,7 +26,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="formControlRange">Set up train group:</label>
-                    <input type="range" [max]="dataLength" class="form-control-range" id="formControlRange" formControlName="trainGroup">
+                    <input type="range" [max]="dataLength" class="form-control-range" id="formControlRange" formControlName="trainGroup" (change)="trainGroupChange()">
                     <p>
                         Train group: {{formGroup.controls['trainGroup'].value}} <br>
                         Test group: {{this.dataLength - formGroup.controls['trainGroup'].value}}

@@ -9,13 +9,15 @@
 
 <app-input-file (fileEmitter)="loadFile($event)"></app-input-file>
 
+<button class="btn btn-primary" (click)="train()">Train</button>
+
 <br>
 <br>
 <br>
 
 <ng-container *ngIf="data?.length">
     <!-- data form -->
-    <app-neural-network-form [data]="data[0]" (formEmitter)="setUpProperties($event)"></app-neural-network-form>
+    <app-neural-network-form [data]="data[0]" [dataLength]="data.length" (formEmitter)="setUpProperties($event)"></app-neural-network-form>
 
     <!-- data elements -->
     <div class="container">

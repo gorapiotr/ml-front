@@ -9,6 +9,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 export class NeuralNetworkFormComponent implements OnInit {
 
   @Input() data: any;
+  @Input() dataLength: number;
   @Output() formEmitter: EventEmitter<any> = new EventEmitter<any>();
   trainingProperties: string[];
 
@@ -22,6 +23,14 @@ export class NeuralNetworkFormComponent implements OnInit {
     this.createForm();
   }
 
+  private createForm() {
+    this.formGroup = this.fb.group({
+      trainingProperties: this.createFormArray(),
+      predictClass: [this.trainingProperties[this.trainingProperties.length - 1], Validators.required],
+      trainGroup: [this.dataLength - this.dataLength / 2],
+    });
+  };
+
   onSubmit() {
     const trainingProperties = this.trainingProperties.filter((item: any, index: any) => {
       return this.formGroup.controls['trainingProperties'].value[index];
@@ -29,19 +38,16 @@ export class NeuralNetworkFormComponent implements OnInit {
 
     this.formEmitter.emit({
       trainingProperties: trainingProperties,
-      predictClass: this.formGroup.controls['predictClass'].value
+      predictClass: this.formGroup.controls['predictClass'].value,
+      trainGroup: this.formGroup.controls['trainGroup'].value,
+      testGroup: this.dataLength - this.formGroup.controls['trainGroup'].value
     });
   }
 
-  private createForm() {
-    this.formGroup = this.fb.group({
-      trainingProperties: this.createFormArray(),
-      predictClass: [null, Validators.required]
-    });
-  };
-
   private createFormArray() {
-    return new FormArray(this.trainingProperties.map(() => new FormControl(true)));
+    return new FormArray(this.trainingProperties.map((item: any, index: number) => new FormControl(
+      {value: !(this.trainingProperties.length - 1 === index), disabled: this.trainingProperties.length - 1 === index}
+    )));
   }
 }
 

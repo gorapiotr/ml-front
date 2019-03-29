@@ -9,8 +9,6 @@ import {NeuralNetwork, NeuralNetworkConfig} from './utils/neural-network';
 export class NeuralNetworkComponent implements OnInit {
 
   data: any;
-  trainingData: any;
-  testData: any;
   config: NeuralNetworkConfig;
 
   constructor() {
@@ -26,6 +24,7 @@ export class NeuralNetworkComponent implements OnInit {
 
   setUpProperties(event: any) {
     this.config = event;
+    this.train();
   }
 
   train() {

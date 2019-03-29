@@ -1,0 +1,21 @@
+<div style="display: block">
+    <ng-container *ngIf="!loading">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="btn-group center">
+                    <ng-container *ngFor="let item of properties">
+                        <button class="btn btn-outline-primary" (click)="changeProperty(item)">{{item}}</button>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

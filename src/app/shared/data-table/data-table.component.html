@@ -1,0 +1,33 @@
+<ng-container *ngIf="!loading">
+    <h5>Laded data</h5>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <ng-container *ngFor="let item of data[0] | keyvalue">
+                <th scope="col">{{item.key | titlecase }}</th>
+            </ng-container>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let obj of getData()">
+            <ng-container *ngFor="let item of obj | keyvalue">
+                <td> {{item.value}}</td>
+            </ng-container>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+        </ngb-pagination>
+
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+            <option [ngValue]="10">10 items per page</option>
+            <option [ngValue]="20">20 items per page</option>
+            <option [ngValue]="30">30 items per page</option>
+            <option [ngValue]="40">40 items per page</option>
+            <option [ngValue]="50">50 items per page</option>
+        </select>
+    </div>
+</ng-container>

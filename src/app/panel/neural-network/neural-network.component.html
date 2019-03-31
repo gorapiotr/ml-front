@@ -41,3 +41,7 @@
     </div>
 
 </ng-container>
+
+<div class="fixed-bottom p-0">
+    <app-output-console [data]="consoleInfo" [events]="eventsSubject.asObservable()"></app-output-console>
+</div>

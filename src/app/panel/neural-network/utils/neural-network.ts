@@ -1,3 +1,5 @@
+import {BehaviorSubject, config, Observable, Subject} from 'rxjs';
+
 const tf = require('@tensorflow/tfjs');
 
 export class NeuralNetwork {
@@ -6,10 +8,16 @@ export class NeuralNetwork {
   data: any;
   private _model: any;
 
+  trainSubject: Subject<string> = new Subject<string>();
+
   constructor(config: NeuralNetworkConfig, data: any) {
     this.config = config;
     this.data = data;
     this._model = this.initModel();
+  }
+
+  getTrainSubject(): Observable {
+    return this.trainSubject;
   }
 
   get trainingData() {
@@ -80,7 +88,7 @@ export class NeuralNetwork {
     console.log('......Loss History.......');
     for (let i = 0; i < 30; i++) {
       const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 30});
-      console.log(`Iteration ${i}: ${res.history.loss[0]}`);
+      this.trainSubject.next(`Iteration ${i}: ${res.history.loss[0]}`);
     }
 
     let predict = this.model.predict(this.testData).toString();

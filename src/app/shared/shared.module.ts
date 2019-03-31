@@ -8,16 +8,16 @@ import {ClassChartComponent} from './data-charts/class-chart/class-chart.compone
 import {PropertiesChartComponent} from './data-charts/properties-chart/properties-chart.component';
 import {DataTableComponent} from './data-table/data-table.component';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import { OutputConsoleComponent } from './output-console/output-console.component';
 
 @NgModule({
   declarations: [
     InputFileComponent,
-    //DataCharts
     DataChartsComponent,
     ClassChartComponent,
     PropertiesChartComponent,
-
-    DataTableComponent
+    DataTableComponent,
+    OutputConsoleComponent
   ],
   imports: [
     CommonModule,
@@ -28,12 +28,12 @@ import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   exports: [
     InputFileComponent,
-    //DataCharts
     DataChartsComponent,
     ClassChartComponent,
     PropertiesChartComponent,
 
-    DataTableComponent
+    DataTableComponent,
+    OutputConsoleComponent
   ]
 })
 export class SharedModule {

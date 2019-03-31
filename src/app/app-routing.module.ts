@@ -8,14 +8,13 @@ import {DecisionTreeComponent} from './panel/decision-tree/decision-tree.compone
 import {DataChartsComponent} from './shared/data-charts/data-charts.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'test-chart', pathMatch: 'full'},
+  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {
     path: '', component: PanelLayoutComponent, children: [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'neural-network', component: NeuralNetworkComponent},
       {path: 'decision-tree', component: DecisionTreeComponent},
-      {path: 'test-chart', component: DataChartsComponent},
     ]
   },
   {path: '**', redirectTo: 'login', pathMatch: 'full'}

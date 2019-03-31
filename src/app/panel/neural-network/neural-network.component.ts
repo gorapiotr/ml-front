@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NeuralNetwork, NeuralNetworkConfig} from './utils/neural-network';
+import {BehaviorSubject, Subject} from 'rxjs';
 
 @Component({
   selector: 'app-neural-network',
@@ -8,6 +9,8 @@ import {NeuralNetwork, NeuralNetworkConfig} from './utils/neural-network';
 })
 export class NeuralNetworkComponent implements OnInit {
 
+  consoleInfo: string[] = [];
+  private eventsSubject: BehaviorSubject<string> = new BehaviorSubject<string>();
   data: any;
   config: NeuralNetworkConfig;
 
@@ -19,7 +22,7 @@ export class NeuralNetworkComponent implements OnInit {
 
   loadFile(event: any) {
     this.data = event;
-    //display data properties
+    this.eventsSubject.next('Data loaded');
   }
 
   setUpProperties(event: any) {
@@ -31,5 +34,9 @@ export class NeuralNetworkComponent implements OnInit {
     //neural network
     const neuralNetwork = new NeuralNetwork(this.config, this.data);
     neuralNetwork.trainData();
+
+    neuralNetwork.getTrainSubject().subscribe((data) => {
+      this.eventsSubject.next(data);
+    });
   }
 }

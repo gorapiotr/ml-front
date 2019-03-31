@@ -7,7 +7,7 @@ import {style} from '@angular/animations';
   templateUrl: './output-console.component.html',
   styleUrls: ['./output-console.component.scss']
 })
-export class OutputConsoleComponent implements OnInit, AfterViewInit, DoCheck {
+export class OutputConsoleComponent implements OnInit, AfterViewInit {
 
   loading = true;
   shellBodyHeight = 0;
@@ -32,7 +32,7 @@ export class OutputConsoleComponent implements OnInit, AfterViewInit, DoCheck {
   }
 
   setUpScroll() {
-    let objDiv = document.getElementById('shell-body');
+    const objDiv = document.getElementById('shell-body');
     objDiv.scrollTop = objDiv.scrollHeight;
   }
 

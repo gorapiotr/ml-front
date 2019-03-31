@@ -1,8 +1,36 @@
 <app-panel-header>
-  <div header-title>Decision tree</div>
-  <div buttons>
-    <button class="btn btn-sm btn-outline-primary">
-      Decision tree info
-    </button>
-  </div>
+    <div header-title>Decision tree</div>
+    <div buttons>
+        <button class="btn btn-sm btn-outline-primary">
+            Decision tree info
+        </button>
+    </div>
 </app-panel-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <app-input-file (fileEmitter)="loadFile($event)"></app-input-file>
+        </div>
+    </div>
+</div>
+
+<!--<ng-container *ngIf="data?.length">-->
+<b>Comic guy:</b>
+<div id="testingItem"></div>
+<br/>
+<b>Decision Tree prediction:</b>
+<div id="decisionTreePrediction"></div>
+<br/>
+<b>Random Forest prediction:</b>
+<div id="randomForestPrediction"></div>
+<br/>
+<b>Decision Tree:</b>
+<br/>
+
+<!--<div class="tree" id="displayTree"></div>-->
+<div class="tree-body">
+    <div class="tree" id="displayTree">
+    </div>
+</div>
+<!--</ng-container>-->

@@ -33,10 +33,15 @@
                                      (formEmitter)="setUpProperties($event)"></app-neural-network-form>
         </div>
     </div>
-    <!-- data elements -->
+    <!--&lt;!&ndash; data elements &ndash;&gt;-->
+    <!--<div class="row">-->
+        <!--<div class="col">-->
+            <!--<app-data-table [data]="data"></app-data-table>-->
+        <!--</div>-->
+    <!--</div>-->
     <div class="row">
         <div class="col">
-            <app-data-table [data]="data"></app-data-table>
+            {{testedData | json}}
         </div>
     </div>
 

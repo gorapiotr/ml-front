@@ -10,9 +10,10 @@ import {BehaviorSubject, Subject} from 'rxjs';
 export class NeuralNetworkComponent implements OnInit {
 
   consoleInfo: string[] = [];
-  private eventsSubject: BehaviorSubject<string> = new BehaviorSubject<string>();
+  private eventsSubject: Subject<string> = new Subject<string>();
   data: any;
   config: NeuralNetworkConfig;
+  testedData: any;
 
   constructor() {
   }
@@ -37,6 +38,10 @@ export class NeuralNetworkComponent implements OnInit {
 
     neuralNetwork.getTrainSubject().subscribe((data) => {
       this.eventsSubject.next(data);
+    });
+
+    neuralNetwork.getTestSubject().subscribe( (data) => {
+      this.testedData = data;
     });
   }
 }

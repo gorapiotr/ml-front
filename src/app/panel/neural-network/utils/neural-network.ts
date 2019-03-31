@@ -9,15 +9,20 @@ export class NeuralNetwork {
   private _model: any;
 
   trainSubject: Subject<string> = new Subject<string>();
+  testSubject: Subject<any> = new Subject<any>();
 
-  constructor(config: NeuralNetworkConfig, data: any) {
-    this.config = config;
+  constructor(configuration: NeuralNetworkConfig, data: any) {
+    this.config = configuration;
     this.data = data;
     this._model = this.initModel();
   }
 
-  getTrainSubject(): Observable {
+  getTrainSubject(): Observable<string> {
     return this.trainSubject;
+  }
+
+  getTestSubject(): Observable<any> {
+    return this.testSubject;
   }
 
   get trainingData() {
@@ -40,6 +45,8 @@ export class NeuralNetwork {
       this.data.slice(this.config.trainGroup)),
       [this.config.testGroup, this.config.trainingProperties.length]);
   }
+
+
 
   get outputData() {
     return tf.tensor2d(this.data.slice(0, this.config.trainGroup).map(item => [
@@ -85,17 +92,23 @@ export class NeuralNetwork {
   }
 
   async trainData() {
-    console.log('......Loss History.......');
-    for (let i = 0; i < 30; i++) {
-      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 30});
+    for (let i = 0; i < 3; i++) {
+      if (i === 0) {
+        this.trainSubject.next('......Loss History.......');
+      }
+      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 3});
       this.trainSubject.next(`Iteration ${i}: ${res.history.loss[0]}`);
     }
 
-    let predict = this.model.predict(this.testData).toString();
+    this.runTestData();
+  }
 
-    console.log(predict);
+  runTestData() {
+    const predictString = this.model.predict(this.testData).toString();
 
-    predict = JSON.parse(predict.replace('Tensor', '').substring(5));
+    const predict = JSON.parse(predictString.replace('Tensor', '').substring(5));
+    this.trainSubject.next(predictString);
+    this.testSubject.next(predict);
   }
 }
 

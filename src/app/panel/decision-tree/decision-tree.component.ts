@@ -186,12 +186,10 @@ export class DecisionTreeComponent implements OnInit {
     const comic = {'sepalLength': 5.9, 'sepalWidth': 3.0, 'petalLength': 5.1, 'petalWidth': 1.8, 'species': 'virginica'};
 
     const decisionTreePrediction = decisionTree.predict(comic);
-    const randomForestPrediction = randomForest.predict(comic);
 
 // Displaying predictions
     document.getElementById('testingItem').innerHTML = JSON.stringify(comic, null, 0);
     document.getElementById('decisionTreePrediction').innerHTML = JSON.stringify(decisionTreePrediction, null, 0);
-    document.getElementById('randomForestPrediction').innerHTML = JSON.stringify(randomForestPrediction, null, 0);
 
 // Displaying Decision Tree
    document.getElementById('displayTree').innerHTML = this.treeToHtml(decisionTree.root);

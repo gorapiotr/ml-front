@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NeuralNetworkFormComponent } from './neural-network-form.component';
+import { LoadedDataComponent } from './loaded-data.component';
 
-describe('NeuralNetworkFormComponent', () => {
-  let component: NeuralNetworkFormComponent;
-  let fixture: ComponentFixture<NeuralNetworkFormComponent>;
+describe('LoadedDataComponent', () => {
+  let component: LoadedDataComponent;
+  let fixture: ComponentFixture<LoadedDataComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NeuralNetworkFormComponent ]
+      declarations: [ LoadedDataComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NeuralNetworkFormComponent);
+    fixture = TestBed.createComponent(LoadedDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

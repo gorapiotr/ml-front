@@ -9,6 +9,7 @@ import {PropertiesChartComponent} from './data-charts/properties-chart/propertie
 import {DataTableComponent} from './data-table/data-table.component';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import { OutputConsoleComponent } from './output-console/output-console.component';
+import { LoadedDataComponent } from './forms/loaded-data/loaded-data.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { OutputConsoleComponent } from './output-console/output-console.componen
     ClassChartComponent,
     PropertiesChartComponent,
     DataTableComponent,
-    OutputConsoleComponent
+    OutputConsoleComponent,
+    LoadedDataComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { OutputConsoleComponent } from './output-console/output-console.componen
     PropertiesChartComponent,
 
     DataTableComponent,
-    OutputConsoleComponent
+    OutputConsoleComponent,
+    LoadedDataComponent
   ]
 })
 export class SharedModule {

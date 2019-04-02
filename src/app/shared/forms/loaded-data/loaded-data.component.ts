@@ -2,11 +2,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-neural-network-form',
-  templateUrl: './neural-network-form.component.html',
-  styleUrls: ['./neural-network-form.component.scss']
+  selector: 'app-loaded-data',
+  templateUrl: './loaded-data.component.html',
+  styleUrls: ['./loaded-data.component.scss']
 })
-export class NeuralNetworkFormComponent implements OnInit {
+export class LoadedDataComponent implements OnInit {
 
   @Input() data: any;
   @Input() dataLength: number;
@@ -84,4 +84,3 @@ export class NeuralNetworkFormComponent implements OnInit {
     this.formGroup.controls['classValues'].setValue(this.getClassValues(prop));
   }
 }
-

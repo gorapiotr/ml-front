@@ -15,22 +15,41 @@
     </div>
 </div>
 
-<!--<ng-container *ngIf="data?.length">-->
-<b>Comic guy:</b>
-<div id="testingItem"></div>
-<br/>
-<b>Decision Tree prediction:</b>
-<div id="decisionTreePrediction"></div>
-<br/>
-<b>Random Forest prediction:</b>
-<div id="randomForestPrediction"></div>
-<br/>
-<b>Decision Tree:</b>
-<br/>
 
-<!--<div class="tree" id="displayTree"></div>-->
-<div class="tree-body">
-    <div class="tree" id="displayTree">
+<ng-container *ngIf="data?.length">
+
+    <!-- data form -->
+    <div class="row">
+        <div class="col">
+            <app-loaded-data [data]="data" [dataLength]="data.length"
+                             (formEmitter)="setUpProperties($event)"></app-loaded-data>
+            <p> {{config | json}}</p>
+        </div>
     </div>
-</div>
-<!--</ng-container>-->
+
+    <div class="row">
+        <div class="col">
+            <b>Comic guy:</b>
+            <div id="testingItem"></div>
+            <br/>
+            <b>Decision Tree prediction:</b>
+            <div id="decisionTreePrediction"></div>
+            <br/>
+            <b>Decision Tree:</b>
+            <br/>
+
+            <div class="tree-body">
+                <div class="tree" id="displayTree">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="testResults?.length">
+        <div class="col">
+            <ng-container *ngFor="let item of testResults">
+                <p>{{'class ' + item[config.predictClass]  + '=' +  item.result}}</p>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>

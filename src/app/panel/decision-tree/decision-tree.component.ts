@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {iris} from 'src/assets/iris';
 import {NeuralNetworkConfig} from '../neural-network/utils/neural-network';
 
 declare var dt: any;
@@ -67,14 +66,12 @@ export class DecisionTreeComponent implements OnInit {
 
     const config = {
       trainingSet: this.data.slice(0, this.config.trainGroup),
-      categoryAttr: 'species',
+      categoryAttr: this.config.predictClass,
       ignoredAttributes: []
     };
 
-// Building Decision Tree
     this.decisionTree = new dt.DecisionTree(config);
 
-// Displaying Decision Tree
     document.getElementById('displayTree').innerHTML = this.treeToHtml(this.decisionTree.root);
     this.prediction();
   }

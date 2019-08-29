@@ -33,12 +33,13 @@
                                      (formEmitter)="setUpProperties($event)"></app-loaded-data>
         </div>
     </div>
-    <!--&lt;!&ndash; data elements &ndash;&gt;-->
-    <!--<div class="row">-->
-        <!--<div class="col">-->
-            <!--<app-data-table [data]="data"></app-data-table>-->
-        <!--</div>-->
-    <!--</div>-->
+    <!-- data elements -->
+    <div class="row">
+        <div class="col">
+            <app-data-table [data]="data"></app-data-table>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col">
             {{testedData | json}}

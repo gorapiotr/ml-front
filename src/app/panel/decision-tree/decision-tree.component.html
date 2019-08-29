@@ -18,38 +18,45 @@
 
 <ng-container *ngIf="data?.length">
 
+    <!-- charts -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <app-data-charts [data]="data"></app-data-charts>
+            </div>
+        </div>
+    </div>
+
     <!-- data form -->
     <div class="row">
         <div class="col">
             <app-loaded-data [data]="data" [dataLength]="data.length"
                              (formEmitter)="setUpProperties($event)"></app-loaded-data>
-            <p> {{config | json}}</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <b>Comic guy:</b>
-            <div id="testingItem"></div>
-            <br/>
-            <b>Decision Tree prediction:</b>
-            <div id="decisionTreePrediction"></div>
-            <br/>
-            <b>Decision Tree:</b>
-            <br/>
-
-            <div class="tree-body">
-                <div class="tree" id="displayTree">
-                </div>
-            </div>
         </div>
     </div>
 
     <div class="row" *ngIf="testResults?.length">
         <div class="col">
-            <ng-container *ngFor="let item of testResults">
-                <p>{{'class ' + item[config.predictClass]  + '=' +  item.result}}</p>
-            </ng-container>
+            <app-training-result [data]="testResults" [config]="config"></app-training-result>
+        </div>
+    </div>
+
+    <!-- data elements -->
+    <div class="row">
+        <div class="col">
+            <app-data-table [data]="data"></app-data-table>
+        </div>
+    </div>
+
+    <!-- decision tree -->
+    <div class="row">
+        <div class="col">
+            <h5 *ngIf="config">Decision Tree:</h5>
+            <br/>
+            <div class="tree-body">
+                <div class="tree" id="displayTree">
+                </div>
+            </div>
         </div>
     </div>
 </ng-container>

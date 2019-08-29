@@ -1,5 +1,11 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <div class="row">
+        <div class="col">
+            <h5>Data config:</h5>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-3">
             <div class="form-group">
                 <label>Check properties to training: </label>
@@ -37,4 +43,5 @@
         </div>
     </div>
     <button type="submit" class="btn btn-secondary" [disabled]="formGroup.invalid || formGroup.prestine">Train</button>
+    <div class="btn btn-secondary" (click)="shuffleData()">Shuffle</div>
 </form>

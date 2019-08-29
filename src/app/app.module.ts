@@ -9,6 +9,7 @@ import {DashboardModule} from './panel/dashboard/dashboard.module';
 import {LayoutModule} from './layout/layout.module';
 import {NeuralNetworkModule} from './panel/neural-network/neural-network.module';
 import {DecisionTreeModule} from './panel/decision-tree/decision-tree.module';
+import {NaiveBayesModule} from './panel/naive-bayes/naive-bayes.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {DecisionTreeModule} from './panel/decision-tree/decision-tree.module';
     DashboardModule,
     NeuralNetworkModule,
     DecisionTreeModule,
+    NaiveBayesModule,
     LayoutModule
   ],
   providers: [],

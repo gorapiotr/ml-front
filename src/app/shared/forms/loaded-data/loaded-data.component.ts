@@ -83,4 +83,17 @@ export class LoadedDataComponent implements OnInit {
   updateClassValues(prop: string) {
     this.formGroup.controls['classValues'].setValue(this.getClassValues(prop));
   }
+
+  shuffleData() {
+    this.data = this.shuffle(this.data);
+    this.formEmitter.emit(this.formGroup.value);
+  }
+
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 }

@@ -1,14 +1,24 @@
-<div class="container">
-
-    <div class="row">
-        <div class="col">
-            <app-properties-chart [properties]="properties" [data]="data"></app-properties-chart>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <app-class-chart [class]="class" [data]="data"></app-class-chart>
-        </div>
+<div class="row">
+    <div class="col">
+        <h5>Properties:</h5>
     </div>
 </div>
+
+<div class="row">
+    <div class="offset-2 col-8">
+        <app-properties-chart [properties]="properties" [data]="data"></app-properties-chart>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h5>Classes:</h5>
+    </div>
+</div>
+
+<div class="offset-2 col-8">
+    <div class="col">
+        <app-class-chart [class]="class" [data]="data"></app-class-chart>
+    </div>
+</div>
+

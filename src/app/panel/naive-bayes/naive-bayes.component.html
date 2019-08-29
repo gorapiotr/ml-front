@@ -1,0 +1,16 @@
+<app-panel-header>
+  <div header-title>Naive Bayes</div>
+  <div buttons>
+    <button class="btn btn-sm btn-outline-primary">
+      Naive Bayes info
+    </button>
+  </div>
+</app-panel-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-input-file (fileEmitter)="loadFile($event)"></app-input-file>
+    </div>
+  </div>
+</div>

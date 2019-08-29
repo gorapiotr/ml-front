@@ -1,20 +1,24 @@
 <ng-container *ngIf="!loading">
-    <h5>Laded data:</h5>
+    <h5>Results table</h5>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
             <th>#</th>
             <ng-container *ngFor="let item of data[0] | keyvalue">
-                <th scope="col">{{item.key | titlecase }}</th>
+                <th *ngIf="item.key !== 'result'" scope="col">{{item.key | titlecase }}</th>
             </ng-container>
+            <th scope="col">Result</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let obj of getData()">
-            <ng-container *ngFor="let item of obj | keyvalue">
-                <td> {{item.value}}</td>
-            </ng-container>
-        </tr>
+        <ng-container *ngFor="let obj of getData()">
+            <tr [class]="obj.species == obj.result ? 'table-success' : 'table-danger'">
+                <ng-container *ngFor="let item of obj | keyvalue">
+                    <td *ngIf="item.key !== 'result'"> {{item.value}}</td>
+                </ng-container>
+                <td>{{obj.result}}</td>
+            </tr>
+        </ng-container>
         </tbody>
     </table>
 
@@ -30,4 +34,6 @@
             <option [ngValue]="50">50 items per page</option>
         </select>
     </div>
+
+    <app-result-chart [data]="data" [class]="config.predictClass"></app-result-chart>
 </ng-container>

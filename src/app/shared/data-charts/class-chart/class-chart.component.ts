@@ -46,5 +46,4 @@ export class ClassChartComponent implements OnInit{
     this.pieChartData = Object.values(counter);
     this.loading = false;
   }
-
 }

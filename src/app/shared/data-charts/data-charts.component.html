@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!loading">
     <div class="offset-2 col-8">
         <app-properties-chart [properties]="properties" [data]="data"></app-properties-chart>
     </div>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="offset-2 col-8">
+<div class="offset-2 col-8" *ngIf="!loading">
     <div class="col">
         <app-class-chart [class]="class" [data]="data"></app-class-chart>
     </div>

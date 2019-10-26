@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 
 @Component({
@@ -6,9 +6,16 @@ import {Component, Input} from '@angular/core';
   templateUrl: './data-charts.component.html',
   styleUrls: ['./data-charts.component.scss']
 })
-export class DataChartsComponent {
+export class DataChartsComponent implements OnInit{
 
-  @Input() class = 'species';
-  @Input() data: any;
-  @Input() properties = ['sepalLength', 'sepalWidth', 'petalLength', 'petalWidth'];
+  @Input() class = 'class';
+  @Input() data: any[];
+  properties = [];
+  loading = true;
+
+  ngOnInit(): void {
+    this.properties = Object.keys(this.data[0]);
+    this.loading = false;
+  }
+
 }

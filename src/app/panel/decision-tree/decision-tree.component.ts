@@ -15,6 +15,8 @@ export class DecisionTreeComponent implements OnInit {
   config: NeuralNetworkConfig;
   decisionTree: any;
   testResults: any;
+  result: 'result';
+
 
   ngOnInit() {
   }
@@ -55,6 +57,7 @@ export class DecisionTreeComponent implements OnInit {
 
   setUpProperties(event: any) {
     this.config = event;
+
     this.train();
   }
 

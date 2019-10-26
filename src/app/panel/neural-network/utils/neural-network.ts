@@ -1,4 +1,4 @@
-import {BehaviorSubject, config, Observable, Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 const tf = require('@tensorflow/tfjs');
 
@@ -47,14 +47,11 @@ export class NeuralNetwork {
   }
 
 
-
   get outputData() {
     return tf.tensor2d(this.data.slice(0, this.config.trainGroup).map(item => [
-      item.species === 'setosa' ? 1 : 0,
-      item.species === 'virginica' ? 1 : 0,
-      item.species === 'versicolor' ? 1 : 0
-
-    ]), [this.config.trainGroup, 3]);
+      item.class === 'tested_positive' ? 1 : 0,
+      item.class === 'tested_negative' ? 1 : 0
+    ]), [this.config.trainGroup, 2]);
   }
 
   get model() {
@@ -76,8 +73,8 @@ export class NeuralNetwork {
     model.add(tf.layers.dense(
       {
         inputShape: 10,
-        units: 3,
-        activation: 'softmax'
+        units: 2,
+        activation: 'sigmoid'
       }
     ));
 
@@ -92,11 +89,12 @@ export class NeuralNetwork {
   }
 
   async trainData() {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
       if (i === 0) {
         this.trainSubject.next('......Loss History.......');
       }
-      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 3});
+      console.log(this.data.slice(0, this.config.trainGroup));
+      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 300});
       this.trainSubject.next(`Iteration ${i}: ${res.history.loss[0]}`);
     }
 
@@ -104,11 +102,19 @@ export class NeuralNetwork {
   }
 
   runTestData() {
-    const predictString = this.model.predict(this.testData).toString();
+    const predict = this.model.predict(this.testData).arraySync();
 
-    const predict = JSON.parse(predictString.replace('Tensor', '').substring(5));
-    this.trainSubject.next(predictString);
-    this.testSubject.next(predict);
+    const classes = ['tested_positive', 'tested_negative'];
+
+    const tested = this.data.slice(this.config.trainGroup).map((item, index) => {
+      console.log(predict[index]);
+      const classIndex = predict[index].indexOf(Math.max(...predict[index]));
+      item['result'] = classes[classIndex];
+      console.log(item);
+      return item;
+    });
+
+    this.testSubject.next(tested);
   }
 }
 

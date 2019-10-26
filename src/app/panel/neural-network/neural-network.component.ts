@@ -13,7 +13,7 @@ export class NeuralNetworkComponent implements OnInit {
   private eventsSubject: Subject<string> = new Subject<string>();
   data: any;
   config: NeuralNetworkConfig;
-  testedData: any;
+  testResults: any[];
 
   constructor() {
   }
@@ -41,7 +41,8 @@ export class NeuralNetworkComponent implements OnInit {
     });
 
     neuralNetwork.getTestSubject().subscribe( (data) => {
-      this.testedData = data;
+      console.log(data);
+      this.testResults = data;
     });
   }
 }

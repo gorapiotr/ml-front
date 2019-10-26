@@ -1,0 +1,88 @@
+<div style="display: block">
+  <div class="row">
+    <div class="col-12">
+      <ng-container *ngIf="!loading">
+        <div class="row">
+          <div class="col-6">
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th scope="col" rowspan="2" colspan="2"></th>
+                <th scope="col text-center" colspan="2">Actual class</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td colspan="2"></td>
+                <td>{{classes[0]}}</td>
+                <td>{{classes[1]}}</td>
+              </tr>
+              <tr>
+                <td rowspan="2" class="align-middle text-center font-weight-bold">Predicted class</td>
+                <td>{{classes[0]}}</td>
+                <td>TP - {{confusionMatrix[0][0]}}</td>
+                <td>FP - {{confusionMatrix[0][1]}}</td>
+              </tr>
+              <tr>
+                <td>{{classes[1]}}</td>
+                <td>FN - {{confusionMatrix[1][0]}}</td>
+                <td>TN - {{confusionMatrix[1][1]}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-6">
+            <table class="table table-bordered">
+              <thead>
+              </thead>
+              <tbody>
+              <tr>
+                <td>TRP - sensitivity,</td>
+                <td>{{sensitivity | percent}}</td>
+              </tr>
+              <tr>
+                <td>TNR - specificity</td>
+                <td>{{specificity | percent}}</td>
+              </tr>
+              <tr>
+                <td>PPV - precision</td>
+                <td>{{precision | percent}}</td>
+              </tr>
+              <tr>
+                <td>ACC - accuracy</td>
+                <td>{{accuracy | percent}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <ng-container *ngIf="!loading">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Wrong</th>
+            <th scope="col">Correct</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of historicalData; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{item.wrong}}</td>
+            <td>{{item.correct}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </div>
+    <div class="col-6">
+      <div class="btn btn-success" (click)="showJSONData = !showJSONData">Show json data</div>
+      <p *ngIf="showJSONData"> {{historicalData | json}}</p>
+    </div>
+  </div>
+</div>

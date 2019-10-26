@@ -32,7 +32,7 @@ export class ResultChartComponent implements OnInit, OnChanges {
   };
 
   ngOnInit() {
-    this.initChartData();
+    //this.initChartData();
   }
 
   ngOnChanges(changes: SimpleChanges) {

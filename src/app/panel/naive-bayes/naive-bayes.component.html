@@ -14,3 +14,39 @@
     </div>
   </div>
 </div>
+
+
+<ng-container *ngIf="data?.length">
+
+  <!-- naive bayes -->
+
+  <!-- charts -->
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <app-data-charts [data]="data"></app-data-charts>
+      </div>
+    </div>
+  </div>
+
+  <!-- data form -->
+  <div class="row">
+    <div class="col">
+      <app-loaded-data [data]="data" [dataLength]="data.length"
+                       (formEmitter)="setUpProperties($event)"></app-loaded-data>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="testResults?.length">
+    <div class="col">
+      <app-training-result [data]="testResults" [config]="config"></app-training-result>
+    </div>
+  </div>
+
+  <!-- data elements -->
+  <div class="row">
+    <div class="col">
+      <app-data-table [data]="data"></app-data-table>
+    </div>
+  </div>
+</ng-container>

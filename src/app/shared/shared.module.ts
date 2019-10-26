@@ -12,6 +12,7 @@ import { OutputConsoleComponent } from './output-console/output-console.componen
 import { LoadedDataComponent } from './forms/loaded-data/loaded-data.component';
 import { TrainingResultComponent } from './training-result/training-result.component';
 import { ResultChartComponent } from './training-result/result-chart/result-chart.component';
+import { ConfusionMatrixComponent } from './confusion-matrix/confusion-matrix.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ResultChartComponent } from './training-result/result-chart/result-char
     OutputConsoleComponent,
     LoadedDataComponent,
     TrainingResultComponent,
-    ResultChartComponent
+    ResultChartComponent,
+    ConfusionMatrixComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { ResultChartComponent } from './training-result/result-chart/result-char
     OutputConsoleComponent,
     LoadedDataComponent,
     TrainingResultComponent,
-    ResultChartComponent
+    ResultChartComponent,
+    ConfusionMatrixComponent
   ]
 })
 export class SharedModule {

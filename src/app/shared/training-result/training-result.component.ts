@@ -26,7 +26,6 @@ export class TrainingResultComponent implements OnInit {
   getData(): any {
     this.collectionSize = this.data.length;
     return this.data
-      .map((data, i) => ({id: i + 1, ...data}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 

@@ -17,7 +17,9 @@
                 Correct answers: <strong>{{correctAnswers}}</strong>({{correctAnswers / data.length | percent }}).
             </div>
             <div class="alert alert-danger" role="alert">
-                Wrong answers: <strong>{{data.length - correctAnswers}}</strong>({{(data.length - correctAnswers) / data.length | percent }}).
+                Wrong answers:
+                <strong>{{data.length - correctAnswers}}</strong>({{(data.length - correctAnswers) / data.length | percent }}
+                ).
             </div>
         </div>
     </div>

@@ -14,8 +14,8 @@ export class InputFileComponent implements OnInit {
   formGroup: FormGroup;
   fileName = 'Load file';
   loadFlag = false;
-  irisHref: string;
-  diabetesHref: string;
+  irisHref: any;
+  diabetesHref: any;
 
   constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) {
   }

@@ -7,7 +7,7 @@ export class NeuralNetwork {
   config: NeuralNetworkConfig;
   data: any;
   private _model: any;
-  classes: [];
+  classes:any = [];
 
   trainSubject: Subject<string> = new Subject<string>();
   testSubject: Subject<any> = new Subject<any>();
@@ -51,8 +51,8 @@ export class NeuralNetwork {
   get outputData() {
 
     const tensorData = this.data.slice(0, this.config.trainGroup).map(item => {
-      let array = Array.from({length: this.classes.length}, (v, k) => 0);
-      array[this.classes.indexOf(item[this.config.predictClass])]  = 1;
+      let array = Array.from({length: this.classes.length}, (v: any, k: any) => 0);
+      array[this.classes.indexOf(item[this.config.predictClass])] = 1;
       return array;
     });
 
@@ -60,7 +60,7 @@ export class NeuralNetwork {
     return tf.tensor2d(tensorData, [this.config.trainGroup, this.classes.length]);
   }
 
-  getClasses() {
+  getClasses(): any {
     let pred = {};
 
     this.data.slice(0, this.config.trainGroup).map((item) => {

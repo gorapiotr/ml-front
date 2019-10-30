@@ -14,7 +14,7 @@ export class NeuralNetworkComponent implements OnInit {
   data: any;
   config: NeuralNetworkConfig;
   testResults: any[];
-  loading: false;
+  loading: boolean = false;
 
   constructor() {
   }

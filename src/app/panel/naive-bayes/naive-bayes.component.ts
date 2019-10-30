@@ -105,15 +105,15 @@ export class NaiveBayesComponent implements OnInit {
     });
 
 
-    const sum = 0;
-    Object.keys(predictions).forEach((item) => {
+    let sum = 0;
+    Object.keys(predictions).forEach((item: any) => {
       sum += predictions[item].value;
     });
 
     if (sum == 0) {
-      Object.keys(predictions).forEach((item) => {
-        let rep = {}
-        Object.values(predictions[item]).forEach(function (x) {
+      Object.keys(predictions).forEach((item: any) => {
+        let rep = {};
+        Object.values(predictions[item]).forEach(function (x: any) {
           rep[x] = (rep[x] || 0) + 1;
         });
         predictions[item].value = 1 / rep['undefined'];

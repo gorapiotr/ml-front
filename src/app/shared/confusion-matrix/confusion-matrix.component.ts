@@ -12,6 +12,7 @@ export class ConfusionMatrixComponent implements OnInit, OnChanges {
   loading = true;
   correctAnswers = 0;
   showJSONData = false;
+  showComponent = false;
 
   historicalData: any[] = [];
 
@@ -33,7 +34,30 @@ export class ConfusionMatrixComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+
+    if(changes.data.currentValue) {
+      let classes = [];
+      this.data.map((item) => {
+        classes.push(item[this.class]);
+      });
+
+      let unique =  this.removeDups(classes);
+      if (unique.length === 2 ) {
+        this.showComponent = true;
+      }
+    }
+
     this.compute();
+  }
+
+  removeDups(names) {
+    let unique = {};
+    names.forEach(function(i) {
+      if(!unique[i]) {
+        unique[i] = true;
+      }
+    });
+    return Object.keys(unique);
   }
 
   compute() {

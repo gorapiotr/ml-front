@@ -8,8 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class DataChartsComponent implements OnInit{
 
-  @Input() class = 'class';
   @Input() data: any[];
+  @Input() class;
   properties = [];
   loading = true;
 

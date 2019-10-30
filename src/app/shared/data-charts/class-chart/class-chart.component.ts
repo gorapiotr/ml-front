@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ChartOptions, ChartType} from 'chart.js';
 import {Label, SingleDataSet} from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
@@ -8,7 +8,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
   templateUrl: './class-chart.component.html',
   styleUrls: ['./class-chart.component.scss']
 })
-export class ClassChartComponent implements OnInit{
+export class ClassChartComponent implements OnInit, OnChanges{
 
   loading = true;
   @Input() class;
@@ -31,6 +31,10 @@ export class ClassChartComponent implements OnInit{
   };
 
   ngOnInit() {
+    this.initChartData();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.initChartData();
   }
 

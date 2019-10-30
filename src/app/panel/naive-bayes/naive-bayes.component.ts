@@ -85,40 +85,40 @@ export class NaiveBayesComponent implements OnInit {
       });
     });
 
-    // Object.keys(predictions).forEach((item) => {
-    //   Object.keys(object).forEach((key) => {
-    //     if (key != this.config.predictClass) {
-    //       predictions[item][key] = this.pred[item][key][object[key]];
-    //     }
-    //   });
-    // });
-    //
-    //
-    // Object.keys(predictions).forEach((item) => {
-    //   predictions[item].px = Object.values(predictions[item]).reduce((x, y) => x * y);
-    //
-    //   predictions[item].value = predictions[item].px * this.pred[item].value / this.data.slice(0, this.config.trainGroup).length;
-    //
-    //   if (isNaN(predictions[item].value)) {
-    //     predictions[item].value = 0;
-    //   }
-    // });
+    Object.keys(predictions).forEach((item) => {
+      Object.keys(object).forEach((key) => {
+        if (key != this.config.predictClass) {
+          predictions[item][key] = this.pred[item][key][object[key]];
+        }
+      });
+    });
 
-    //
-    // const sum = 0;
-    // Object.keys(predictions).forEach((item) => {
-    //   sum += predictions[item].value;
-    // });
-    //
-    // if (sum == 0) {
-    //   Object.keys(predictions).forEach((item) => {
-    //     let rep = {}
-    //     Object.values(predictions[item]).forEach(function (x) {
-    //       rep[x] = (rep[x] || 0) + 1;
-    //     });
-    //     predictions[item].value = 1 / rep['undefined'];
-    //   });
-    // }
+
+    Object.keys(predictions).forEach((item) => {
+      predictions[item].px = Object.values(predictions[item]).reduce((x, y) => x * y);
+
+      predictions[item].value = predictions[item].px * this.pred[item].value / this.data.slice(0, this.config.trainGroup).length;
+
+      if (isNaN(predictions[item].value)) {
+        predictions[item].value = 0;
+      }
+    });
+
+
+    const sum = 0;
+    Object.keys(predictions).forEach((item) => {
+      sum += predictions[item].value;
+    });
+
+    if (sum == 0) {
+      Object.keys(predictions).forEach((item) => {
+        let rep = {}
+        Object.values(predictions[item]).forEach(function (x) {
+          rep[x] = (rep[x] || 0) + 1;
+        });
+        predictions[item].value = 1 / rep['undefined'];
+      });
+    }
 
     const result = Object.keys(predictions).reduce((a, b) => predictions[a].value > predictions[b].value ? a : b);
 

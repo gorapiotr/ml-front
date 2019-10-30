@@ -12,6 +12,7 @@ export class InputFileComponent implements OnInit {
 
   formGroup: FormGroup;
   fileName = 'Load file';
+  loadFlag = false;
 
   constructor(private fb: FormBuilder) {
   }
@@ -43,6 +44,7 @@ export class InputFileComponent implements OnInit {
 
   onSubmit() {
     this.fileEmitter.emit(this.shuffle(this.formGroup.controls['file'].value));
+    this.loadFlag = true;
   }
 
   shuffle(a) {
@@ -51,6 +53,10 @@ export class InputFileComponent implements OnInit {
       [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
+  }
+
+  reload() {
+    window.location.reload();
   }
 
 }

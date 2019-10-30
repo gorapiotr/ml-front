@@ -8,14 +8,17 @@
     <div class="row">
         <div class="col-8">
             <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFileLang" (change)="onFileChange($event)">
+                <input type="file" class="custom-file-input" id="customFileLang" (change)="onFileChange($event)" [disabled]="loadFlag">
                 <label class="custom-file-label" for="customFileLang">{{fileName}}</label>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-4" *ngIf="!loadFlag">
             <button type="submit" class="btn btn-secondary" [disabled]="formGroup.invalid || formGroup.prestine">
                 Submit
             </button>
+        </div>
+        <div class="col-4" *ngIf="loadFlag" (click)="reload()">
+            <div class="btn btn-success">Change file</div>
         </div>
     </div>
 </form>

@@ -18,10 +18,10 @@
 <ng-container *ngIf="data?.length">
 
     <!-- charts -->
-    <div class="container">
+    <div class="container" *ngIf="config">
         <div class="row">
             <div class="col">
-                <app-data-charts [data]="data"></app-data-charts>
+                <app-data-charts [data]="data" [class]="config.predictClass"></app-data-charts>
             </div>
         </div>
     </div>

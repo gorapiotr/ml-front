@@ -7,6 +7,7 @@ export class NeuralNetwork {
   config: NeuralNetworkConfig;
   data: any;
   private _model: any;
+  classes: [];
 
   trainSubject: Subject<string> = new Subject<string>();
   testSubject: Subject<any> = new Subject<any>();
@@ -48,10 +49,27 @@ export class NeuralNetwork {
 
 
   get outputData() {
-    return tf.tensor2d(this.data.slice(0, this.config.trainGroup).map(item => [
-      item.class === 'tested_positive' ? 1 : 0,
-      item.class === 'tested_negative' ? 1 : 0
-    ]), [this.config.trainGroup, 2]);
+
+    const tensorData = this.data.slice(0, this.config.trainGroup).map(item => {
+      let array = Array.from({length: this.classes.length}, (v, k) => 0);
+      array[this.classes.indexOf(item[this.config.predictClass])]  = 1;
+      return array;
+    });
+
+    console.log(tensorData);
+    return tf.tensor2d(tensorData, [this.config.trainGroup, this.classes.length]);
+  }
+
+  getClasses() {
+    let pred = {};
+
+    this.data.slice(0, this.config.trainGroup).map((item) => {
+      return item[this.config.predictClass];
+    }).forEach((x) => {
+      pred[x] = (pred[x] || 0) + 1;
+    });
+
+    return Object.keys(pred);
   }
 
   get model() {
@@ -59,6 +77,7 @@ export class NeuralNetwork {
   }
 
   initModel() {
+    this.classes = this.getClasses();
     const model = tf.sequential();
 
 
@@ -73,7 +92,7 @@ export class NeuralNetwork {
     model.add(tf.layers.dense(
       {
         inputShape: 10,
-        units: 2,
+        units: this.classes.length,
         activation: 'sigmoid'
       }
     ));
@@ -89,12 +108,12 @@ export class NeuralNetwork {
   }
 
   async trainData() {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
       if (i === 0) {
         this.trainSubject.next('......Loss History.......');
       }
-      console.log(this.data.slice(0, this.config.trainGroup));
-      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 300});
+      this.initModel();
+      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 5});
       this.trainSubject.next(`Iteration ${i}: ${res.history.loss[0]}`);
     }
 
@@ -104,12 +123,10 @@ export class NeuralNetwork {
   runTestData() {
     const predict = this.model.predict(this.testData).arraySync();
 
-    const classes = ['tested_positive', 'tested_negative'];
-
     const tested = this.data.slice(this.config.trainGroup).map((item, index) => {
       console.log(predict[index]);
       const classIndex = predict[index].indexOf(Math.max(...predict[index]));
-      item['result'] = classes[classIndex];
+      item['result'] = this.classes[classIndex];
       console.log(item);
       return item;
     });

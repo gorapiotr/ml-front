@@ -10,7 +10,7 @@ export class DataTableComponent implements OnInit {
   @Input() data: any;
   loading = true;
   page = 1;
-  pageSize = 10;
+  pageSize = 50;
   collectionSize: number;
 
   constructor() {

@@ -95,7 +95,7 @@ export class NaiveBayesComponent implements OnInit {
 
 
     Object.keys(predictions).forEach((item) => {
-      predictions[item].px = Object.values(predictions[item]).reduce((x, y) => x * y);
+      predictions[item].px = Object.values(predictions[item]).reduce((x: any, y:any ) => x * y);
 
       predictions[item].value = predictions[item].px * this.pred[item].value / this.data.slice(0, this.config.trainGroup).length;
 

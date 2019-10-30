@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-input-file',
@@ -13,12 +14,16 @@ export class InputFileComponent implements OnInit {
   formGroup: FormGroup;
   fileName = 'Load file';
   loadFlag = false;
+  irisHref: string;
+  diabetesHref: string;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
     this.createForm();
+    this.genIris();
+    this.genDiabetes();
   }
 
   private createForm() {
@@ -59,4 +64,21 @@ export class InputFileComponent implements OnInit {
     window.location.reload();
   }
 
+  async genIris() {
+
+    let resp = await fetch('https://api.myjson.com/bins/oao4w');
+
+    var theJSON = JSON.stringify(await resp.json());
+    var uri = this.sanitizer.bypassSecurityTrustUrl('data:text/json;charset=UTF-8,' + encodeURIComponent(theJSON));
+    this.irisHref = uri;
+  }
+
+  async genDiabetes() {
+
+    let resp = await fetch('https://api.myjson.com/bins/1eqqts');
+
+    var theJSON = JSON.stringify(await resp.json());
+    var uri = this.sanitizer.bypassSecurityTrustUrl('data:text/json;charset=UTF-8,' + encodeURIComponent(theJSON));
+    this.diabetesHref = uri;
+  }
 }

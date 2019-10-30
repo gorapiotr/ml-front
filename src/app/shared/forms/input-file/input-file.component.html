@@ -1,4 +1,19 @@
 <form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()">
+
+    <div class="row">
+        <div class="col-12 mb-1">
+            <h5>Download example datasets</h5>
+        </div>
+        <div class="col-12 mb-3 ml-2">
+            <div class="btn btn-success mr-2">
+                <a title="Download JSON" [href]="irisHref" download="iris.json">Iris dataset </a><i class="fa fa-file"></i>
+            </div>
+            <div class="btn btn-success">
+                <a title="Download JSON" [href]="diabetesHref" download="diabetes.json">Diabetes </a><i class="fa fa-file"></i>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col">
             <h5>Upload .json file:</h5>

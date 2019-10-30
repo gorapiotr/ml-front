@@ -36,6 +36,28 @@
         </div>
     </div>
 
+    <div class="row mt-4" *ngIf="loading">
+        <div class="col">
+            <div class="text-center">
+                <div class="alert alert-warning" role="alert">
+                    Calculations in progress, please wait! <br>
+
+                    <div class="spinner-grow text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <br>
+                    It can take up to 10-15 minutes!
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row" *ngIf="testResults?.length">
         <div class="col">
             <app-training-result [data]="testResults" [config]="config"></app-training-result>
@@ -43,7 +65,7 @@
     </div>
 
     <!-- data elements -->
-    <div class="row">
+    <div class="row" *ngIf="testResults?.length">
         <div class="col">
             <app-data-table [data]="data"></app-data-table>
         </div>

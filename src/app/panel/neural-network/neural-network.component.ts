@@ -14,6 +14,7 @@ export class NeuralNetworkComponent implements OnInit {
   data: any;
   config: NeuralNetworkConfig;
   testResults: any[];
+  loading: false;
 
   constructor() {
   }
@@ -33,6 +34,7 @@ export class NeuralNetworkComponent implements OnInit {
 
   train() {
     //neural network
+    this.loading = true;
     const neuralNetwork = new NeuralNetwork(this.config, this.data);
     neuralNetwork.trainData();
 
@@ -42,6 +44,7 @@ export class NeuralNetworkComponent implements OnInit {
 
     neuralNetwork.getTestSubject().subscribe( (data) => {
       console.log(data);
+      this.loading = false;
       this.testResults = data;
     });
   }

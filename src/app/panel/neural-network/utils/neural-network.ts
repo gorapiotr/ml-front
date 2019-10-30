@@ -108,12 +108,12 @@ export class NeuralNetwork {
   }
 
   async trainData() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
       if (i === 0) {
         this.trainSubject.next('......Loss History.......');
       }
       this.initModel();
-      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 5});
+      const res = await this.model.fit(this.trainingData, this.outputData, {epochs: 20});
       this.trainSubject.next(`Iteration ${i}: ${res.history.loss[0]}`);
     }
 

@@ -10,6 +10,8 @@ import {LayoutModule} from './layout/layout.module';
 import {NeuralNetworkModule} from './panel/neural-network/neural-network.module';
 import {DecisionTreeModule} from './panel/decision-tree/decision-tree.module';
 import {NaiveBayesModule} from './panel/naive-bayes/naive-bayes.module';
+import {IrisExampleModule} from './panel/iris-example/iris-example.module';
+import {DiabetesExampleModule} from './panel/diabetes-example/diabetes-example.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {NaiveBayesModule} from './panel/naive-bayes/naive-bayes.module';
     FormsModule,
     ReactiveFormsModule,
 
+    IrisExampleModule,
+    DiabetesExampleModule,
     DashboardModule,
     NeuralNetworkModule,
     DecisionTreeModule,

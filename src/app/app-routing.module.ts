@@ -21,7 +21,7 @@ const routes: Routes = [
       {path: 'naive-bayes', component: NaiveBayesComponent},
       {path: 'example-iris', component: IrisExampleComponent},
       {path: 'example-diabetes', component: DiabetesExampleComponent},
-      {path: 'demo', component: DemoComponent},
+      {path: 'example-movies', component: DemoComponent},
 
     ]
   },

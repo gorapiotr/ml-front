@@ -12,6 +12,7 @@ import {DecisionTreeModule} from './panel/decision-tree/decision-tree.module';
 import {NaiveBayesModule} from './panel/naive-bayes/naive-bayes.module';
 import {IrisExampleModule} from './panel/iris-example/iris-example.module';
 import {DiabetesExampleModule} from './panel/diabetes-example/diabetes-example.module';
+import {DemoModule} from './panel/demo/demo.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {DiabetesExampleModule} from './panel/diabetes-example/diabetes-example.m
     FormsModule,
     ReactiveFormsModule,
 
+    DemoModule,
     IrisExampleModule,
     DiabetesExampleModule,
     DashboardModule,

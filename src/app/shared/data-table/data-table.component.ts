@@ -10,7 +10,7 @@ export class DataTableComponent implements OnInit {
   @Input() data: any;
   loading = true;
   page = 1;
-  pageSize = 50;
+  pageSize = 10;
   collectionSize: number;
 
   constructor() {
@@ -23,7 +23,7 @@ export class DataTableComponent implements OnInit {
 
   getData(): any {
     return this.data
-      .map((data, i) => ({id: i + 1, ...data}))
+      // .map((data, i) => ({id: i + 1, ...data}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 

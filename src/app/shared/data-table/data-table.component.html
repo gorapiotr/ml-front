@@ -3,8 +3,7 @@
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>#</th>
-            <ng-container *ngFor="let item of data[0] | keyvalue">
+            <ng-container *ngFor="let item of getData()[0] | keyvalue">
                 <th scope="col">{{item.key | titlecase }}</th>
             </ng-container>
         </tr>

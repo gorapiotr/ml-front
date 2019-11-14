@@ -8,6 +8,7 @@ import {DecisionTreeComponent} from './panel/decision-tree/decision-tree.compone
 import {NaiveBayesComponent} from './panel/naive-bayes/naive-bayes.component';
 import {IrisExampleComponent} from './panel/iris-example/iris-example.component';
 import {DiabetesExampleComponent} from './panel/diabetes-example/diabetes-example.component';
+import {DemoComponent} from './panel/demo/demo.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -20,6 +21,8 @@ const routes: Routes = [
       {path: 'naive-bayes', component: NaiveBayesComponent},
       {path: 'example-iris', component: IrisExampleComponent},
       {path: 'example-diabetes', component: DiabetesExampleComponent},
+      {path: 'demo', component: DemoComponent},
+
     ]
   },
   {path: '**', redirectTo: 'login', pathMatch: 'full'}

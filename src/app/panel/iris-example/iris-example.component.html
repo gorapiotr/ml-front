@@ -41,7 +41,7 @@
   </div>
 
   <!-- data elements -->
-  <div class="row">
+  <div class="row" *ngIf="!testResults?.length">
     <div class="col">
       <app-data-table [data]="data"></app-data-table>
     </div>
